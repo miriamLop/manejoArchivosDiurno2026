@@ -12,29 +12,45 @@ import java.util.Scanner;
  * @author Dylan Duran
  */
 public class PrincipalArchivo {
+
     public static void main(String[] args) throws IOException {
-        archivo obj=new archivo();
-        Scanner sc=new Scanner(System.in);
+        archivo obj = new archivo();
+        Scanner sc = new Scanner(System.in);
         int opc;
-        boolean cont=true;
-        do {            
+        boolean cont = true;
+        do {
             System.out.println("\n Menu de opciones");
             System.out.println("1. Crear Archivo");
             System.out.println("2. Adicionar Contacto al Archivo");
             System.out.println("3. Mostrar contenido del Archivo");
-            System.out.println("4. Salir");
+            System.out.println("4. Buscar contacto");
+            System.out.println("5. Adionar correo");
+            System.out.println("6. Salir");
             System.out.println("Digite una opcion");
-            opc=sc.nextInt();
+            opc = sc.nextInt();
             sc.nextLine();
-            
+
             switch (opc) {
-                case 1:obj.crearArchivo();break;
-                case 2:obj.agregarcontenido();break;
-                case 3:obj.mostrarContenido();break;
+                case 1:
+                    obj.crearArchivo();
+                    break;
+                case 2:
+                    obj.agregarcontenido();
+                    break;
+                case 3:
+                    obj.mostrarContenido();
+                    break;
+                case 4:
+                    obj.buscarContacto();
+                    break;
+                case 5:
+                    obj.agregarCorreo();
+                    break;
                 default:
-                    throw new AssertionError();
+                    cont = false;
+                    break;
             }
         } while (cont);
-        
+
     }
 }
